@@ -3,22 +3,22 @@ dotfiles
 
 All of my dotfiles.
 
-== Applications and Config Dependencies ==
+## Dependencies
 - cli
   - vim
-   - vim-plug
+    - vim-plug
   - tmux
+  - starship
 - gui
   - sway
-    - swaylock
-      - grim
-      - imagemagick
-    - wofi
-    - fzf
-    - compgen
+    - swaylock-effects
+    - slurp
+    - grim
+    - bemenu
     - mako
     - jq
     - light
     - pactl
   - waybar
   - alacritty
+  - nerd-fonts
