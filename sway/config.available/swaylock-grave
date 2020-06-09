@@ -1,0 +1,2 @@
+# implement swaylock
+bindsym $mod+grave exec swaylock -u --screenshots --effect-blur 5x3 --effect-compose "20%x20%;$HOME/.dotfiles/sway/images/_lock_img"

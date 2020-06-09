@@ -1,0 +1,4 @@
+mode passthrough {
+	bindsym $mod+Insert mode default
+}
+bindsym $mod+Insert mode passthrough

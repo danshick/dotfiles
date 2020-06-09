@@ -1,0 +1,4 @@
+input "type:touchpad" {
+  tap enabled
+  scroll_factor 0.5
+}

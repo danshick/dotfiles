@@ -1,0 +1,120 @@
+@define-color background rgba(45, 42, 46, 0.8);
+@define-color foreground #ebdbb2;
+
+@define-color black_hard 	#1d2021;
+@define-color black 			#282828;
+@define-color black_soft 	#32302f;
+@define-color black_1			#3c3836;
+@define-color black_2			#504945;
+@define-color black_3			#665c54;
+@define-color black_4			#7c6f64;
+@define-color gray  			#928374;
+@define-color white_4			#a89984;
+@define-color white_3			#bdae93;
+@define-color white_2			#d5c4a1;
+@define-color white_1			#ebdbb2;
+@define-color white				#fbf1c7;
+
+@define-color red   #cc241d;
+@define-color green #98971a;
+@define-color yellow #d79921;
+@define-color blue  #458588;
+@define-color purple #b16286;
+@define-color aqua  #689d6a;
+@define-color orange #d65d0e;
+
+@define-color red_light    #fb4934;
+@define-color green_light  #b8bb26;
+@define-color yellow_light #fabd2f;
+@define-color blue_light   #83a598;
+@define-color purple_light #d3869b;
+@define-color aqua_light   #8ec07c;
+@define-color orange_light #fe8010;
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: FuraMono Nerd Font Mono;
+  font-size: 16px;
+}
+
+window#waybar {
+  background-color: @background;
+  border-bottom: 3px solid @blue;
+  color: @foreground;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: @foreground;
+  background: transparent;
+  border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+  background: @blue;
+  border-bottom: 3px solid @blue_light;
+}
+
+#window {
+  margin: 0 50px;
+}
+
+#mode {
+  background: @red;
+  border-bottom: 3px solid @white;
+}
+
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#clock,
+#tray {
+  padding: 0 6px;
+  margin: 0 3px;
+}
+
+#clock {
+  background-color: @blue_light;
+  border-bottom: 3px solid @blue;
+  color: @black;
+}
+
+@keyframes blink {
+  to {
+    background-color: @white;
+    color: @black;
+  }
+}
+#battery {
+  background-color: @white;
+  border-bottom: 3px solid @gray;
+  color: @black;
+}
+#battery.charging {
+  color: @black;
+  background-color: @green_light;
+  border-bottom: 3px solid @green;
+}
+#battery.warning:not(.charging) {
+  background: @yellow;
+  color: @foreground;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#battery.crticial:not(.charging) {
+  background: @red;
+  color: @foreground;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

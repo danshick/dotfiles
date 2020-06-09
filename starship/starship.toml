@@ -1,0 +1,14 @@
+[character]
+symbol = "λ"
+
+[hostname]
+ssh_only = false
+prefix = "⟪"
+suffix = "⟫"
+disabled = false
+
+[username]
+show_always = true
+
+[directory]
+truncation_length = 8

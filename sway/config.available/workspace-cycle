@@ -1,0 +1,1 @@
+bindsym $mod+Alt+space exec swaymsg -t get_outputs | jq '.[] | .name' | sed -n "1p;/`swaymsg -t get_outputs | jq '.[] | select(.focused==true) | .name'`/{n;p;}" | tail -n1 | xargs swaymsg move workspace to

@@ -1,0 +1,6 @@
+# gaps config
+default_border none
+default_floating_border normal
+gaps inner 10
+gaps outer 10
+smart_gaps off

@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+[ $# -eq 1 ] || exit 1;
+
+FILE=$(cd $(dirname "${1}") && pwd -P)/$(basename "${1}")
+
+file "${FILE}" | grep -qE 'image|bitmap' || exit 1;
+
+ln -fs ${FILE} $HOME/.dotfiles/sway/images/_bg_img;

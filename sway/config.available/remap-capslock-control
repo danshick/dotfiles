@@ -1,0 +1,4 @@
+# remap capslock to control
+input "type:keyboard" {
+  xkb_options ctrl:swapcaps_hyper
+}

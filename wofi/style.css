@@ -1,0 +1,20 @@
+* {
+  background-color: transparent;
+}
+#window {
+  font-family: "FuraMono Nerd Font Mono";
+  font-size: 22px;
+  background-color: rgba(45, 42, 46, .9);
+}
+
+#input {
+  border: 0px;
+  color: rgba(240, 240, 240, 1);
+}
+
+#inner-box {
+  color: rgba(240, 240, 240, 1);
+}
+#inner-box :selected {
+  color: rgba(19, 163, 235, 1);
+}

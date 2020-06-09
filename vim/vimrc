@@ -1,0 +1,208 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" ================ General Config ====================
+
+"set background=dark             "Assume dark background
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+set visualbell                  "No sounds
+set autoread                    "Reload files changed outside vim
+set guioptions-=m               "Remove menubar
+set guioptions-=T               "Remove toolbar
+syntax enable
+
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+  au WinLeave * setlocal nocursorline
+  au WinLeave * setlocal nocursorcolumn
+augroup END
+
+"set spell                       "Enable spell check
+
+set shortmess+=filmnrxoOtT      "Abbreviation of messages (avoids 'hit enter')
+set viewoptions=folds,options,cursor,unix,slash "Better unix / windows compatibility
+set virtualedit=onemore       "Allow for cursor beyond last character
+
+set showmatch         "Show matching brackets/parenthesis
+set incsearch         "Find as you type search
+set hlsearch          "Highlight search terms
+set ignorecase        "Case insensitive search
+set smartcase         "Ignore ignorecase when search term contains upper case
+
+set gdefault          "The /g flag on :s substitutions by default
+
+set ruler                   "Show the ruler
+set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) "A ruler on steroids
+set showcmd "Show partial commands in status line and selected characters/lines in visual mode
+
+set lazyredraw "No screen redraw during macros
+
+if v:version >= 730
+  set colorcolumn=80    "Draw a visual line down the 80th column
+endif
+
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
+
+"Fonts
+set guifont=Anonymous\ Pro:h11,Consolas:h11
+
+"Encoding UTF-8
+set encoding=utf-8
+scriptencoding utf-8
+
+set showtabline=1 "Show tabbar when more than one tab is open
+
+" Change leader to a comma because the backslash is too far away
+" That means all \x commands turn into ,x
+" The mapleader has to be set before loading all 
+" the plugins.
+let mapleader=","
+
+" Shorten commands by making ; act like :
+nnoremap ; :
+
+"Make jk act like escape.
+inoremap jk <esc>
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+nnoremap j gj
+nnoremap k gk
+
+"Easier buffer management
+nnoremap <C-d>n :bnext<CR>
+nnoremap <C-d>c :enew<CR>
+nnoremap <C-d>d :bdelete<CR>
+nnoremap <C-d>w :bwipeout<CR>
+
+:inoremap ( ()<Esc>i
+:inoremap < <><Esc>i
+:inoremap { {}<Esc>i
+:inoremap [ []<Esc>i
+:inoremap ' ''<Esc>i
+:inoremap " ""<Esc>i
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
+
+call plug#begin('~/.vim/plugged')
+" plugins
+Plug 'Lokaltog/vim-easymotion'
+
+Plug 'scrooloose/nerdtree'
+nnoremap <A-n> :NERDTreeToggle<CR>
+
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-scripts/closetag.vim'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" Theme airline
+let g:airline_theme='powerlineish'
+" Add buffer list to airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+"Add Syntastic
+Plug 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+
+set laststatus=2
+
+Plug 'tomasr/molokai'
+
+call plug#end()
+
+ " Required:
+ filetype plugin indent on
+
+colorscheme molokai
+
+" ================ Turn Off Swap Files ==============
+
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+
+if v:version >= 730
+  silent !mkdir -p ~/.vim/backups
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" ================ Indentation ======================
+
+set autoindent "Indent at the same level of the previous line
+set pastetoggle=<Leader>v
+set smartindent "
+set smarttab "
+set shiftwidth=2 "Use indents of 2 spaces
+set softtabstop=2 "Let backspace delete indent
+set tabstop=2 "An indentation every two columns
+"set expandtab "Tabs are spaces, not tabs
+autocmd FileType make setlocal noexpandtab "Tabs for Makefiles
+
+filetype plugin indent on "Detect filetypes and appropriate plugins and indentations
+
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+"set list listchars=tab:??,eol:?
+
+set wrap       "Wrap lines
+set linebreak  "Wrap lines at convenient points
+set nolist
+
+" ================ Folds ============================
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=5       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+" ================ Completion =======================
+
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+
+" ================ Scrolling ========================
+
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+

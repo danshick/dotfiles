@@ -1,0 +1,1 @@
+bindsym $mod+Shift+p exec grim - | wl-copy

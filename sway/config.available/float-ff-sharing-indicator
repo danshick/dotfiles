@@ -1,0 +1,2 @@
+for_window [title="Firefox - Sharing Indicator"] floating enable
+for_window [title="Nightly - Sharing Indicator"] floating enable

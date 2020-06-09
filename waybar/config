@@ -1,0 +1,68 @@
+{
+	"layer": "bottom",
+	"modules-left": ["sway/workspaces", "sway/mode"],
+	"modules-center": ["sway/window"],
+	"modules-right": ["pulseaudio", "backlight", "network", "temperature", "cpu", "memory", "tray", "battery", "clock"],
+  "sway/window": {
+    "tooltip": false
+  },
+  "pulseaudio": {
+		"tooltip": false,
+		"format": "{icon} {volume}%",
+    "format-muted": "",
+		"format-icons": {
+      "headphones": "",
+			"default": ["奄", "奔", "墳"]
+		},
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+	},
+  "backlight": {
+    "tooltip": false,
+    "device": "intel_backlight",
+    "on-scroll-up": "light -A 1",
+    "on-scroll-down": "light -U 1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", ""]
+  },
+  "network": {
+		"tooltip": false,
+		"format-wifi": " {essid} {ipaddr}",
+		"format-ethernet": " {ipaddr}",
+    "format-disconnected": "⚠ Disconnected"
+	},
+  "temperature": {
+    "tooltip": false,
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C"
+  },
+	"cpu": {
+		"tooltip": false,
+		"format": " {}%"
+	},
+	"memory": {
+		"tooltip": false,
+		"format": " {}%"
+	},
+	"tray": {
+    "icon-size": 21,
+    "spacing": 10
+	},
+  "battery": {
+    "tooltip": false,
+    "interval": 30,
+    "bat": "BAT0",
+    "format-discharging": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "states": {
+        "warning": 30,
+        "critical": 15
+    }
+  },
+  "clock": {
+    "tooltip": false,
+    "interval": 1,
+    "format": "{:%Y/%m/%d - %r}"
+  }
+}
