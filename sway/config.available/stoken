@@ -1,0 +1,1 @@
+bindsym $mod+Shift+backslash exec stoken | tr -d '\n' | wl-copy -o

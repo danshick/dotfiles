@@ -22,7 +22,7 @@ if [ $? -ne 0 ]; then
 fi
 
 VAULT_ITEM=$(bw list items --session ${VAULT_TOKEN} | \
-	jq -r '.[] | .name' | bemenu)
+	jq -r '.[] | .name' | bemenu -i)
 if [ -z "$VAULT_ITEM" ]; then
 	bw lock;
 	exit 1;
