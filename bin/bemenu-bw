@@ -1,0 +1,34 @@
+#!/usr/bin/env sh
+
+_COLOR_BLACK='#32302f';
+_COLOR_YELLOW_LIGHT='#fabd2f';
+
+VAULT_PW=$(BEMENU_BACKEND="wayland" \
+	echo "" | bemenu \
+	--no-exec \
+	--prompt="Password: " \
+	--fn "FuraCode Nerd Font Mono" \
+	--tb="$_COLOR_BLACK" \
+	--fb="$_COLOR_BLACK" \
+	--ff="$_COLOR_BLACK" \
+	--tf="$_COLOR_YELLOW_LIGHT")
+if [ -z "$VAULT_PW" ]; then
+	exit 1;
+fi;
+
+VAULT_TOKEN="$(bw unlock --raw ${VAULT_PW})"
+if [ $? -ne 0 ]; then
+	exit 1;
+fi
+
+VAULT_ITEM=$(bw list items --session ${VAULT_TOKEN} | \
+	jq -r '.[] | .name' | bemenu)
+if [ -z "$VAULT_ITEM" ]; then
+	bw lock;
+	exit 1;
+fi;
+
+bw get password --session ${VAULT_TOKEN} ${VAULT_ITEM} | wl-copy -o;
+bw lock;
+
+exit 0;
