@@ -1,2 +1,7 @@
-# implement swaylock
-bindsym $mod+grave exec swaylock -u --screenshots --effect-blur 5x3 --effect-compose "20%x20%;$HOME/.dotfiles/sway/images/_lock_img"
+# implement swaylock and swayidle
+bindsym $mod+grave exec '$lock -f; sleep 1; pkill -USR1 swayidle'
+
+exec swayidle -w \
+	timeout 0 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep '$lock -f'
