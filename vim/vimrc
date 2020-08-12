@@ -132,14 +132,15 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 set laststatus=2
 
-Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
- " Required:
- filetype plugin indent on
+" Required:
+filetype plugin indent on
 
-colorscheme molokai
+set bg=dark
+colorscheme gruvbox
 
 " ================ Turn Off Swap Files ==============
 
