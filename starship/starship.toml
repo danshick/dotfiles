@@ -1,13 +1,14 @@
 [character]
-symbol = "λ"
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
 
 [hostname]
 ssh_only = false
-prefix = "⟪"
-suffix = "⟫"
+format = "[⟪$hostname⟫]($style) in "
 disabled = false
 
 [username]
+format = "[$user]($style) on "
 show_always = true
 
 [directory]
