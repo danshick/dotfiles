@@ -1,4 +1,4 @@
 # disable capslock
 input "type:keyboard" {
-  xkb_options caps:none
+  xkb_options caps:ctrl_modifier
 }

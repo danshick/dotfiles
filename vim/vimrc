@@ -109,6 +109,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'sheerun/vim-polyglot'
+" don't hide commas in csv
+let g:csv_no_conceal = 1
+
 Plug 'vim-scripts/closetag.vim'
 
 Plug 'vim-airline/vim-airline'

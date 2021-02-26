@@ -3,5 +3,6 @@ bindsym $mod+grave exec '$lock -f; sleep 1; pkill -USR1 swayidle'
 
 exec swayidle -w \
 	timeout 0 'swaymsg "output * dpms off"' \
+	timeout 10 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep '$lock -f'
