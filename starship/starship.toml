@@ -13,3 +13,7 @@ show_always = true
 
 [directory]
 truncation_length = 8
+
+[env_var]
+variable = "_CUSTOM_SHELL"
+format="[\\(inside $env_value shell\\)](bold red) "

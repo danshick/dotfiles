@@ -3,9 +3,7 @@
 source $HOME/.dotfiles/env/colors.env
 
 BEMENU_BACKEND="wayland" \
-swaymsg exec
-`bemenu-run \
-	--no-exec \
+bemenu \
   --prompt=">>>" \
   --list=10 \
   --fn "FuraCode Nerd Font Mono" \
@@ -18,4 +16,4 @@ swaymsg exec
   --ff="$_COLOR_AQUA_LIGHT" \
   --hf="$_COLOR_WHITE_0" \
   --nf="$_COLOR_WHITE_0" \
-  --sf="$_COLOR_WHITE_0"`
+  --sf="$_COLOR_WHITE_0"

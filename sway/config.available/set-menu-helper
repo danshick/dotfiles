@@ -1,1 +1,1 @@
-set $menu exec $HOME/.bin/menu-command
+set $menu exec $HOME/.bin/run-menu-command
