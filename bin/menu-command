@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+source $HOME/.dotfiles/env/colors.env
+
+BEMENU_BACKEND="wayland" \
+bemenu \
+  --prompt=">>>" \
+  --list=10 \
+  --fn "FuraCode Nerd Font Mono" \
+  --tb="$_COLOR_BLACK_0S" \
+  --fb="$_COLOR_BLACK_0S" \
+  --hb="$_COLOR_PURPLE_DARK" \
+  --nb="$_COLOR_BLACK_0S" \
+  --sb="$_COLOR_BLUE_DARK" \
+  --tf="$_COLOR_YELLOW_LIGHT" \
+  --ff="$_COLOR_AQUA_LIGHT" \
+  --hf="$_COLOR_WHITE_0" \
+  --nf="$_COLOR_WHITE_0" \
+  --sf="$_COLOR_WHITE_0"

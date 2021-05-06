@@ -1,0 +1,7 @@
+[screencast]
+output_name=
+max_fps=20
+exec_before=pkill -x mako
+exec_after=swaymsg exec mako
+chooser_type=dmenu
+chooser_cmd=$HOME/.bin/menu-command
