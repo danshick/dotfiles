@@ -1,65 +1,103 @@
 {
-	"layer": "bottom",
-	"modules-left": ["sway/workspaces", "sway/mode"],
-	"modules-center": ["sway/window"],
-	"modules-right": ["pulseaudio", "backlight", "network", "temperature", "cpu", "memory", "tray", "battery", "clock"],
+  "layer": "bottom",
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "backlight",
+    "network",
+    "bluetooth",
+    "temperature",
+    "cpu",
+    "memory",
+    "tray",
+    "battery",
+    "clock"
+  ],
   "sway/window": {
     "tooltip": false
   },
   "pulseaudio": {
-		"tooltip": false,
-		"format": "{icon} {volume}%",
+    "tooltip": false,
+    "format": "{icon} {volume}%",
     "format-muted": "",
-		"format-icons": {
+    "format-icons": {
       "headphones": "",
-			"default": ["奄", "奔", "墳"]
-		},
+      "default": [
+        "奄",
+        "奔",
+        "墳"
+      ]
+    },
     "scroll-step": 1,
     "on-click": "pavucontrol",
-		"on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-	},
+    "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  },
   "backlight": {
     "tooltip": false,
     "device": "intel_backlight",
     "on-scroll-up": "light -A 1",
     "on-scroll-down": "light -U 1",
     "format": "{icon} {percent}%",
-    "format-icons": ["", ""]
+    "format-icons": [
+      "",
+      ""
+    ]
   },
   "network": {
-		"tooltip": false,
-		"format-wifi": " {essid} {ipaddr}",
-		"format-ethernet": " {ipaddr}",
+    "tooltip": false,
+    "format-wifi": " {essid} {ipaddr}",
+    "format-ethernet": " {ipaddr}",
     "format-disconnected": "⚠ Disconnected"
-	},
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
   "temperature": {
     "tooltip": false,
     "critical-threshold": 80,
     "format": " {temperatureC}°C"
   },
-	"cpu": {
-		"tooltip": false,
-		"format": " {}%"
-	},
-	"memory": {
-		"tooltip": false,
-		"format": " {}%"
-	},
-	"tray": {
+  "cpu": {
+    "tooltip": false,
+    "format": " {}%"
+  },
+  "memory": {
+    "tooltip": false,
+    "format": " {}%"
+  },
+  "tray": {
     "icon-size": 21,
     "spacing": 10
-	},
+  },
   "battery": {
     "tooltip": false,
     "interval": 30,
-    "bat": "BAT0",
+    "bat": "BAT1",
     "format-discharging": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
     "states": {
-        "warning": 30,
-        "critical": 15
+      "warning": 30,
+      "critical": 15
     }
   },
   "clock": {
