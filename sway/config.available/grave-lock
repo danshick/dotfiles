@@ -1,0 +1,2 @@
+# implement swaylock and swayidle
+bindsym $mod+grave exec 'loginctl lock-session'

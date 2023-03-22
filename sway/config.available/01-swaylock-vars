@@ -1,1 +1,1 @@
-set $lock swaylock -u --screenshots --effect-blur 5x3 --effect-compose "20%x20%;$HOME/.dotfiles/sway/images/_lock_img"
+set $lock swaylock -u --screenshots --effect-blur 5x3 --effect-compose "20%x20%;$HOME/.config/sway/images/_lock_img"

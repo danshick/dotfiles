@@ -1,1 +1,1 @@
-output * bg $HOME/.dotfiles/sway/images/_bg_img fill
+output * bg $HOME/.config/sway/images/_bg_img fill
