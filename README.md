@@ -5,8 +5,8 @@ All of my dotfiles.
 
 ## Dependencies
 - cli
-  - vim
-    - vim-plug
+  - git
+  - nvim
   - tmux
   - starship
 - gui
@@ -21,4 +21,3 @@ All of my dotfiles.
     - pactl
   - waybar
   - alacritty
-  - nerd-fonts
