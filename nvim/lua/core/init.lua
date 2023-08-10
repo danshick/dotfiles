@@ -1,3 +1,5 @@
+require('core/remap')
+
 -- utf-8 encoding
 vim.o.encoding = 'utf-8'
 vim.scriptencoding = 'utf-8'
@@ -21,6 +23,7 @@ vim.opt.list = true
 
 -- tabs render as two spaces
 vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 
 -- sign column on
 vim.wo.signcolumn = 'yes'
@@ -35,12 +38,6 @@ vim.o.clipboard="unnamedplus"
 
 -- allow normal mode cursor beyone last character
 vim.o.virtualedit = 'onemore'
-
--- set <space> as the leader key
--- and disable it's default behavior in normal and visual mode
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- vim command completion like bash
 vim.opt.wildmode={'longest', 'list'}
