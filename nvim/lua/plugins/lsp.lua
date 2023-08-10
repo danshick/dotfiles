@@ -90,7 +90,6 @@ return {
 						}
 					}
 				},
-				ruby_ls = {},
 				rust_analyzer = {},
 				lua_ls = {},
 				taplo = {},
