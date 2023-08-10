@@ -1,0 +1,19 @@
+# Mac
+.DS_Store
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# vscode
+.vscode
+
+# asdf tool versions
+.tool-versions
+
+# repo personal notes
+_notes*
