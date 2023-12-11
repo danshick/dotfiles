@@ -31,5 +31,11 @@ return {
 		config = function()
 			require('dap-python').setup(os.getenv("VIRTUAL_ENV") .. "/bin/python")
 		end
+	},
+	{
+		'leoluz/nvim-dap-go',
+		config = function()
+			require('dap-go').setup()
+		end
 	}
 }

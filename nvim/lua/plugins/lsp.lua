@@ -34,6 +34,10 @@ return {
 				tag = 'legacy',
 				config = true
 			},
+			-- json/yaml schema validation
+			{
+				'b0o/schemastore.nvim'
+			},
 			-- lsp for init.lua and neovim plugin dev
 			{
 				'folke/neodev.nvim',
@@ -47,9 +51,13 @@ return {
 				denols = {},
 				dockerls = {},
 				eslint = {},
+				gopls = {},
 				gradle_ls = {},
 				graphql = {},
-				jsonls = {},
+				jsonls = {
+					schemas = require('schemastore').json.schemas(),
+					validate = { enable = true },
+				},
 				kotlin_language_server = {},
 				marksman = {},
 				pylsp = {
@@ -95,9 +103,18 @@ return {
 				taplo = {},
 				terraformls = {},
 				tsserver = {},
-				yamlls = {},
+				yamlls = {
+					schemaStore = {
+						-- You must disable built-in schemaStore support if you want to use
+						-- this plugin and its advanced options like `ignore`.
+						enable = false,
+						-- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+						url = "",
+					},
+					schemas = require('schemastore').yaml.schemas(),
+				},
 			}
-			
+
 			local mason_lspconfig = require('mason-lspconfig')
 
 			mason_lspconfig.setup {
@@ -110,9 +127,10 @@ return {
 				end
 
 				vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts("[g]oto [d]efinition"))
+				vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end, opts("[g]oto [t]ype definition"))
+				vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts("[g]oto [r]eferences"))
 				vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts("hover documentation"))
 				---@diagnostic disable-next-line: missing-parameter
-				vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts("[g]oto [r]eferences"))
 				vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts("[r]e[n]ame"))
 				vim.keymap.set('n', "<leader>fm", function() vim.lsp.buf.format() end, opts("[f]or[m]at"))
 				vim.keymap.set('n', "<leader>rl", function()
@@ -149,6 +167,11 @@ return {
 							sources = {
 								-- gha linting
 								null_ls.builtins.diagnostics.actionlint,
+								-- go linting
+								null_ls.builtins.diagnostics.golangci_lint,
+								null_ls.builtins.formatting.gofmt,
+								null_ls.builtins.formatting.golines,
+								null_ls.builtins.formatting.goimports,
 								-- hadolint
 								null_ls.builtins.diagnostics.hadolint,
 								-- prettier

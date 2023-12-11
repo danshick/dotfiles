@@ -42,3 +42,6 @@ vim.o.virtualedit = 'onemore'
 -- vim command completion like bash
 vim.opt.wildmode={'longest', 'list'}
 vim.opt.wildmenu=true
+
+-- enable 24-bit color
+vim.opt.termguicolors = true
