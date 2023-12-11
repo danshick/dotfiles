@@ -11,6 +11,7 @@ git config --global rerere.enabled true
 git config --global push.autoSetupRemote true
 git config --global alias.rpo "remote prune origin"
 git config --global alias.bd "branch -D"
+git config --global alias.ba "branch -a"
 git config --global alias.com '!git checkout "$(git symbolic-ref refs/remotes/origin/HEAD | sed s@^refs/remotes/origin/@@)"'
 git config --global alias.cob "checkout -b"
 git config --global alias.co "checkout"
