@@ -10,7 +10,7 @@ mkdir -p "${HOME}/.ssh";
 
 
 # install asdf
-git clone -q https://github.com/asdf-vm/asdf.git ${HOME}/.asdf --branch v0.12.0;
+git clone -q https://github.com/asdf-vm/asdf.git ${HOME}/.asdf --branch v0.13.1;
 
 # symlink config files
 ln -sf "${ROOT_DIR}/alacritty/alacritty.toml" "${HOME}/.config/alacritty/alacritty.toml";
