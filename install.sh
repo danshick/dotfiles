@@ -13,7 +13,7 @@ mkdir -p "${HOME}/.ssh";
 git clone -q https://github.com/asdf-vm/asdf.git ${HOME}/.asdf --branch v0.12.0;
 
 # symlink config files
-ln -sf "${ROOT_DIR}/alacritty/alacritty.yml" "${HOME}/.config/alacritty/alacritty.yml";
+ln -sf "${ROOT_DIR}/alacritty/alacritty.toml" "${HOME}/.config/alacritty/alacritty.toml";
 ln -sf "${ROOT_DIR}/git/gitignore" "${HOME}/.gitignore";
 ln -sf "${ROOT_DIR}/sqlite/sqliterc" "${HOME}/.sqliterc";
 ln -sf "${ROOT_DIR}/starship/starship.toml" "${HOME}/.config/starship.toml";
