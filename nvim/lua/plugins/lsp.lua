@@ -31,7 +31,7 @@ return {
 			-- useful status updates for LSP
 			{
 				'j-hui/fidget.nvim',
-				tag = 'legacy',
+				tag = "v1.2.0",
 				config = true
 			},
 			-- json/yaml schema validation
@@ -130,7 +130,7 @@ return {
 				vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end, opts("[g]oto [t]ype definition"))
 				vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts("[g]oto [r]eferences"))
 				vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts("hover documentation"))
-				---@diagnostic disable-next-line: missing-parameter
+				vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.signature_help() end, opts("signature documentation"))
 				vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts("[r]e[n]ame"))
 				vim.keymap.set('n', "<leader>fm", function() vim.lsp.buf.format() end, opts("[f]or[m]at"))
 				vim.keymap.set('n', "<leader>rl", function()
@@ -157,7 +157,7 @@ return {
 			dependencies = {
 				"mason.nvim",
 				{
-					"jose-elias-alvarez/null-ls.nvim",
+					"nvimtools/none-ls.nvim",
 					dependencies = {
 						"nvim-lua/plenary.nvim",
 					},
@@ -182,15 +182,10 @@ return {
 								-- spellcheck
 								null_ls.builtins.diagnostics.cspell,
 								null_ls.builtins.code_actions.cspell,
-								-- sql linting/formatting
-								-- null_ls.builtins.diagnostics.sqlfluff.with({
-								-- 	extra_args = { "--dialect", "postgres" }, -- change to your dialect
-								-- }),
-								-- null_ls.builtins.formatting.sqlfluff.with({
-								-- 	extra_args = { "--dialect", "postgres" }, -- change to your dialect
-								-- }),
 								-- terraform
-								null_ls.builtins.formatting.terraform_fmt,
+								null_ls.builtins.formatting.terraform_fmt.with({
+									command = "tofu",
+								}),
 							},
 						}
 					end,
@@ -198,7 +193,7 @@ return {
 			},
 			config = function()
 				require('mason-null-ls').setup {
-					ensure_installed = nil,
+					ensure_installed = {},
 					automatic_installation = true,
 					automatic_setup = false,
 				}
