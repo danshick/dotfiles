@@ -25,7 +25,7 @@
   "pulseaudio": {
     "tooltip": false,
     "format": "{icon} {volume}%",
-    "format-muted": "",
+    "format-muted": "󰝟",
     "format-icons": {
       "headphones": "",
       "default": [
