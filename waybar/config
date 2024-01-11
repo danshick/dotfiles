@@ -29,9 +29,9 @@
     "format-icons": {
       "headphones": "",
       "default": [
-        "奄",
-        "奔",
-        "墳"
+        "󰕿",
+        "󰖀",
+        "󰕾"
       ]
     },
     "scroll-step": 1,
@@ -72,7 +72,7 @@
   },
   "cpu": {
     "tooltip": false,
-    "format": " {}%"
+    "format": " {}%"
   },
   "memory": {
     "tooltip": false,
