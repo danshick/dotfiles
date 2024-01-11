@@ -1,5 +1,8 @@
 input "type:touchpad" {
-  tap enabled
-  scroll_factor 0.5
-  dwt disabled
+	tap enabled
+	tap_button_map lrm
+	scroll_factor 0.5
+	scroll_method two_finger
+	click_method clickfinger
+	dwt disabled
 }
