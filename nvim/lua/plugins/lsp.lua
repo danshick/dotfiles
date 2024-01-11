@@ -46,6 +46,7 @@ return {
 		},
 		config = function()
 			local language_servers = {
+				arduino_language_server = {},
 				bashls = {},
 				clangd = {},
 				denols = {},
@@ -54,6 +55,7 @@ return {
 				gopls = {},
 				gradle_ls = {},
 				graphql = {},
+				hls = {},
 				jsonls = {
 					schemas = require('schemastore').json.schemas(),
 					validate = { enable = true },
